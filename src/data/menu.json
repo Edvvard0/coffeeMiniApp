@@ -1,0 +1,231 @@
+{
+  "categories": [
+    {
+      "id": "coffee",
+      "name": "Кофе",
+      "icon": "coffee",
+      "description": "Горячий и ароматный кофе"
+    },
+    {
+      "id": "desserts",
+      "name": "Десерты",
+      "icon": "cake",
+      "description": "Сладкие угощения"
+    },
+    {
+      "id": "breakfast",
+      "name": "Завтраки",
+      "icon": "sunrise",
+      "description": "Сытные завтраки"
+    },
+    {
+      "id": "drinks",
+      "name": "Напитки",
+      "icon": "glass-water",
+      "description": "Освежающие напитки"
+    },
+    {
+      "id": "sandwiches",
+      "name": "Сэндвичи",
+      "icon": "sandwich",
+      "description": "Свежие сэндвичи"
+    }
+  ],
+  "products": [
+    {
+      "id": "coffee-1",
+      "name": "Эспрессо",
+      "description": "Классический крепкий кофе",
+      "price": 150,
+      "image": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&h=400&fit=crop",
+      "category": "Кофе",
+      "categoryId": "coffee",
+      "available": true,
+      "options": [
+        {
+          "id": "size",
+          "name": "Размер",
+          "type": "size",
+          "required": true,
+          "values": [
+            { "id": "small", "name": "Маленький", "price": 0 },
+            { "id": "medium", "name": "Средний", "price": 30 },
+            { "id": "large", "name": "Большой", "price": 60 }
+          ]
+        }
+      ],
+      "tags": ["популярное"]
+    },
+    {
+      "id": "coffee-2",
+      "name": "Капучино",
+      "description": "Эспрессо с молочной пеной",
+      "price": 200,
+      "image": "https://images.unsplash.com/photo-1572442388796-11668a64e567?w=400&h=400&fit=crop",
+      "category": "Кофе",
+      "categoryId": "coffee",
+      "available": true,
+      "options": [
+        {
+          "id": "size",
+          "name": "Размер",
+          "type": "size",
+          "required": true,
+          "values": [
+            { "id": "small", "name": "Маленький", "price": 0 },
+            { "id": "medium", "name": "Средний", "price": 30 },
+            { "id": "large", "name": "Большой", "price": 60 }
+          ]
+        }
+      ],
+      "tags": ["популярное"]
+    },
+    {
+      "id": "coffee-3",
+      "name": "Латте",
+      "description": "Эспрессо с большим количеством молока",
+      "price": 220,
+      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop",
+      "category": "Кофе",
+      "categoryId": "coffee",
+      "available": true,
+      "options": [
+        {
+          "id": "size",
+          "name": "Размер",
+          "type": "size",
+          "required": true,
+          "values": [
+            { "id": "small", "name": "Маленький", "price": 0 },
+            { "id": "medium", "name": "Средний", "price": 30 },
+            { "id": "large", "name": "Большой", "price": 60 }
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "coffee-4",
+      "name": "Американо",
+      "description": "Эспрессо с горячей водой",
+      "price": 180,
+      "image": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop",
+      "category": "Кофе",
+      "categoryId": "coffee",
+      "available": true,
+      "options": [
+        {
+          "id": "size",
+          "name": "Размер",
+          "type": "size",
+          "required": true,
+          "values": [
+            { "id": "small", "name": "Маленький", "price": 0 },
+            { "id": "medium", "name": "Средний", "price": 30 },
+            { "id": "large", "name": "Большой", "price": 60 }
+          ]
+        }
+      ],
+      "tags": []
+    },
+    {
+      "id": "dessert-1",
+      "name": "Чизкейк",
+      "description": "Нежный чизкейк с ягодами",
+      "price": 350,
+      "image": "https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&h=400&fit=crop",
+      "category": "Десерты",
+      "categoryId": "desserts",
+      "available": true,
+      "tags": ["популярное"]
+    },
+    {
+      "id": "dessert-2",
+      "name": "Тирамису",
+      "description": "Итальянский десерт с кофе",
+      "price": 380,
+      "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=400&fit=crop",
+      "category": "Десерты",
+      "categoryId": "desserts",
+      "available": true,
+      "tags": []
+    },
+    {
+      "id": "dessert-3",
+      "name": "Брауни",
+      "description": "Шоколадный брауни с орехами",
+      "price": 320,
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop",
+      "category": "Десерты",
+      "categoryId": "desserts",
+      "available": true,
+      "tags": []
+    },
+    {
+      "id": "breakfast-1",
+      "name": "Яичница с беконом",
+      "description": "Два яйца, бекон, тосты",
+      "price": 450,
+      "image": "https://images.unsplash.com/photo-1528607929212-4d5b0c0b0b0b?w=400&h=400&fit=crop",
+      "category": "Завтраки",
+      "categoryId": "breakfast",
+      "available": true,
+      "tags": ["популярное"]
+    },
+    {
+      "id": "breakfast-2",
+      "name": "Омлет с овощами",
+      "description": "Омлет с помидорами, перцем и зеленью",
+      "price": 380,
+      "image": "https://images.unsplash.com/photo-1612929633733-8d8b0c8b8b8b?w=400&h=400&fit=crop",
+      "category": "Завтраки",
+      "categoryId": "breakfast",
+      "available": true,
+      "tags": []
+    },
+    {
+      "id": "drink-1",
+      "name": "Свежевыжатый апельсиновый сок",
+      "description": "200 мл свежего сока",
+      "price": 250,
+      "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=400&fit=crop",
+      "category": "Напитки",
+      "categoryId": "drinks",
+      "available": true,
+      "tags": []
+    },
+    {
+      "id": "drink-2",
+      "name": "Лимонад",
+      "description": "Домашний лимонад с мятой",
+      "price": 200,
+      "image": "https://images.unsplash.com/photo-1523677011781-c91d1bbe2fdc?w=400&h=400&fit=crop",
+      "category": "Напитки",
+      "categoryId": "drinks",
+      "available": true,
+      "tags": []
+    },
+    {
+      "id": "sandwich-1",
+      "name": "Клаб-сэндвич",
+      "description": "Курица, бекон, салат, помидоры",
+      "price": 420,
+      "image": "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=400&h=400&fit=crop",
+      "category": "Сэндвичи",
+      "categoryId": "sandwiches",
+      "available": true,
+      "tags": ["популярное"]
+    },
+    {
+      "id": "sandwich-2",
+      "name": "Сэндвич с лососем",
+      "description": "Лосось, авокадо, сливочный сыр",
+      "price": 480,
+      "image": "https://images.unsplash.com/photo-1553909489-cd47e30d48f2?w=400&h=400&fit=crop",
+      "category": "Сэндвичи",
+      "categoryId": "sandwiches",
+      "available": true,
+      "tags": []
+    }
+  ]
+}
