@@ -99,11 +99,11 @@ const CheckoutPage = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <h1 className="text-2xl sm:text-3xl font-bold">Оформление заказа</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-100 uppercase tracking-tight">Оформление заказа</h1>
 
       {/* Contact Information */}
-      <Card className="p-4 space-y-4">
-        <h2 className="font-semibold text-lg">Контактная информация</h2>
+      <Card className="p-4 space-y-4 border-dark-800">
+        <h2 className="font-semibold text-lg text-gray-100">Контактная информация</h2>
         <Input
           label="Имя"
           value={contactName}
@@ -125,9 +125,9 @@ const CheckoutPage = () => {
 
       {/* Delivery Address */}
       {deliveryType === 'delivery' && (
-        <Card className="p-4 space-y-4">
-          <h2 className="font-semibold text-lg flex items-center gap-2">
-            <MapPin size={20} />
+        <Card className="p-4 space-y-4 border-dark-800">
+          <h2 className="font-semibold text-lg flex items-center gap-2 text-gray-100">
+            <MapPin size={20} className="text-primary-500" />
             Адрес доставки
           </h2>
           <Input
@@ -145,47 +145,47 @@ const CheckoutPage = () => {
       )}
 
       {/* Payment Method */}
-      <Card className="p-4 space-y-4">
-        <h2 className="font-semibold text-lg">Способ оплаты</h2>
+      <Card className="p-4 space-y-4 border-dark-800">
+        <h2 className="font-semibold text-lg text-gray-100">Способ оплаты</h2>
         <div className="grid grid-cols-2 gap-3">
           <button
             type="button"
             onClick={() => setPaymentMethod('cash')}
             className={`p-4 rounded-lg border-2 transition-all text-left ${
               paymentMethod === 'cash'
-                ? 'border-primary-600 bg-primary-50'
-                : 'border-gray-300 hover:border-gray-400'
+                ? 'border-primary-600 bg-primary-900'
+                : 'border-dark-700 hover:border-dark-600 bg-dark-800'
             }`}
           >
-            <Wallet size={24} className="mb-2 text-primary-600" />
-            <div className="font-medium">Наличные</div>
-            <div className="text-sm text-gray-600">При получении</div>
+            <Wallet size={24} className="mb-2 text-primary-500" />
+            <div className="font-medium text-gray-100">Наличные</div>
+            <div className="text-sm text-gray-400">При получении</div>
           </button>
           <button
             type="button"
             onClick={() => setPaymentMethod('online')}
             className={`p-4 rounded-lg border-2 transition-all text-left ${
               paymentMethod === 'online'
-                ? 'border-primary-600 bg-primary-50'
-                : 'border-gray-300 hover:border-gray-400'
+                ? 'border-primary-600 bg-primary-900'
+                : 'border-dark-700 hover:border-dark-600 bg-dark-800'
             }`}
           >
-            <CreditCard size={24} className="mb-2 text-primary-600" />
-            <div className="font-medium">Онлайн</div>
-            <div className="text-sm text-gray-600">Картой</div>
+            <CreditCard size={24} className="mb-2 text-primary-500" />
+            <div className="font-medium text-gray-100">Онлайн</div>
+            <div className="text-sm text-gray-400">Картой</div>
           </button>
         </div>
       </Card>
 
       {/* Order Summary */}
-      <Card className="p-4 space-y-3 sticky bottom-24 bg-white sm:static">
-        <h2 className="font-semibold text-lg">Итого</h2>
+      <Card className="p-4 space-y-3 sticky bottom-24 bg-dark-900 sm:static border-dark-800">
+        <h2 className="font-semibold text-lg text-gray-100">Итого</h2>
         <div className="space-y-2">
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-gray-400">
             <span>Товары ({items.length})</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-gray-400">
             <span>Доставка</span>
             <span>
               {deliveryType === 'pickup' || deliveryPrice === 0
@@ -193,9 +193,9 @@ const CheckoutPage = () => {
                 : formatPrice(deliveryPrice)}
             </span>
           </div>
-          <div className="border-t border-gray-200 pt-2 flex justify-between text-lg font-bold">
-            <span>К оплате</span>
-            <span className="text-primary-600">{formatPrice(total)}</span>
+          <div className="border-t border-dark-800 pt-2 flex justify-between text-lg font-bold">
+            <span className="text-gray-100">К оплате</span>
+            <span className="text-primary-500">{formatPrice(total)}</span>
           </div>
         </div>
         <Button

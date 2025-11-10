@@ -24,7 +24,7 @@ const ProductPage = () => {
   if (!product) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-2xl font-bold mb-2">Товар не найден</h2>
+        <h2 className="text-2xl font-bold mb-2 text-gray-100 uppercase tracking-tight">Товар не найден</h2>
         <Button onClick={() => navigate('/menu')} className="mt-4">
           Вернуться в меню
         </Button>
@@ -82,25 +82,33 @@ const ProductPage = () => {
       {/* Back button */}
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+        className="flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors"
       >
         <ArrowLeft size={20} />
         <span>Назад</span>
       </button>
 
       {/* Image Gallery */}
-      <Card className="overflow-hidden p-0">
-        <div className="relative aspect-square bg-gray-100">
+      <Card className="overflow-hidden p-0 border-dark-800">
+        <div className="relative aspect-square bg-dark-800">
           <img
-            src={images[currentImageIndex]}
+            src={images[currentImageIndex] || product.image}
             alt={product.name}
             className="w-full h-full object-cover"
             loading="eager"
             decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.src = 'https://via.placeholder.com/400x400?text=No+Image';
+              // Используем data URI для placeholder
+              target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Crect fill="%231f2937" width="400" height="400"/%3E%3Ctext fill="%2322c55e" x="50%25" y="50%25" text-anchor="middle" dy=".3em" font-size="20"%3ENo Image%3C/text%3E%3C/svg%3E';
+              target.style.opacity = '1';
             }}
+            onLoad={(e) => {
+              // Изображение загрузилось успешно
+              const target = e.target as HTMLImageElement;
+              target.style.opacity = '1';
+            }}
+            style={{ opacity: 0, transition: 'opacity 0.3s' }}
           />
           {product.tags?.includes('популярное') && (
             <div className="absolute top-4 right-4">
@@ -115,10 +123,10 @@ const ProductPage = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`h-2 rounded-full transition-all ${
                     index === currentImageIndex
-                      ? 'bg-white w-8'
-                      : 'bg-white bg-opacity-50'
+                      ? 'bg-primary-500 w-8'
+                      : 'bg-dark-700 w-2'
                   }`}
                 />
               ))}
@@ -130,8 +138,8 @@ const ProductPage = () => {
       {/* Product Info */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">{product.name}</h1>
-          <p className="text-gray-600 text-base">{product.description}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-100 uppercase tracking-tight">{product.name}</h1>
+          <p className="text-gray-400 text-base">{product.description}</p>
         </div>
 
         {/* Options */}
@@ -139,7 +147,7 @@ const ProductPage = () => {
           <div className="space-y-4">
             {product.options.map((option: ProductOption) => (
               <div key={option.id}>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   {option.name}
                   {option.required && <span className="text-red-500 ml-1">*</span>}
                 </label>
@@ -152,13 +160,13 @@ const ProductPage = () => {
                         onClick={() => handleOptionChange(option.id, value.id)}
                         className={`px-4 py-2 rounded-lg border-2 transition-all ${
                           isSelected
-                            ? 'border-primary-600 bg-primary-50 text-primary-700'
-                            : 'border-gray-300 hover:border-gray-400'
+                            ? 'border-primary-600 bg-primary-900 text-primary-300'
+                            : 'border-dark-700 hover:border-dark-600 bg-dark-800 text-gray-300'
                         }`}
                       >
                         <span>{value.name}</span>
                         {value.price > 0 && (
-                          <span className="ml-2 text-sm">
+                          <span className="ml-2 text-sm text-primary-400">
                             +{formatPrice(value.price)}
                           </span>
                         )}
@@ -172,20 +180,20 @@ const ProductPage = () => {
         )}
 
         {/* Quantity Selector */}
-        <div className="flex items-center justify-between py-4 border-t border-b border-gray-200">
-          <span className="font-medium">Количество</span>
+        <div className="flex items-center justify-between py-4 border-t border-b border-dark-800">
+          <span className="font-medium text-gray-300">Количество</span>
           <div className="flex items-center gap-4">
             <button
               onClick={decrementQuantity}
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 transition-colors border border-dark-700 text-gray-300 disabled:opacity-50"
               disabled={quantity <= 1}
             >
               <Minus size={20} />
             </button>
-            <span className="text-lg font-semibold w-8 text-center">{quantity}</span>
+            <span className="text-lg font-semibold w-8 text-center text-gray-100">{quantity}</span>
             <button
               onClick={incrementQuantity}
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 transition-colors border border-dark-700 text-gray-300"
             >
               <Plus size={20} />
             </button>
@@ -193,11 +201,11 @@ const ProductPage = () => {
         </div>
 
         {/* Price and Add to Cart */}
-        <div className="sticky bottom-24 bg-white p-4 -mx-4 border-t border-gray-200 sm:static sm:border-0 sm:p-0">
+        <div className="sticky bottom-24 bg-dark-950 p-4 -mx-4 border-t border-dark-800 sm:static sm:border-0 sm:p-0 sm:bg-transparent">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <div className="text-sm text-gray-600">Итого</div>
-              <div className="text-2xl font-bold text-primary-600">
+              <div className="text-sm text-gray-400">Итого</div>
+              <div className="text-2xl font-bold text-primary-500">
                 {formatPrice(calculatePrice())}
               </div>
             </div>
@@ -213,7 +221,7 @@ const ProductPage = () => {
             Добавить в корзину
           </Button>
           {!product.available && (
-            <p className="text-sm text-red-600 mt-2 text-center">
+            <p className="text-sm text-red-500 mt-2 text-center">
               Товар временно недоступен
             </p>
           )}

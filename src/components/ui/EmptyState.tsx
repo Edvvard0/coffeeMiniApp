@@ -23,10 +23,10 @@ const EmptyState = ({
         className
       )}
     >
-      {icon && <div className="mb-4 text-gray-400">{icon}</div>}
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+      {icon && <div className="mb-4 text-gray-500">{icon}</div>}
+      <h3 className="text-lg font-semibold text-gray-100 mb-2 uppercase tracking-tight">{title}</h3>
       {description && (
-        <p className="text-gray-500 mb-6 max-w-sm">{description}</p>
+        <p className="text-gray-400 mb-6 max-w-sm">{description}</p>
       )}
       {action && <div>{action}</div>}
     </div>

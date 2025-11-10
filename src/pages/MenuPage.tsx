@@ -44,12 +44,12 @@ const MenuPage = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Меню</h1>
-        <p className="text-gray-600">Выберите блюдо по душе</p>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-100 uppercase tracking-tight">Меню</h1>
+        <p className="text-gray-400">Выберите блюдо по душе</p>
       </div>
 
       {/* Поиск */}
-      <div className="sticky top-16 z-40 bg-gray-50 -mx-4 px-4 py-3 -mt-4">
+      <div className="sticky top-16 z-40 bg-dark-950 -mx-4 px-4 py-3 -mt-4">
         <Input
           type="text"
           placeholder="Поиск блюд..."
@@ -63,10 +63,10 @@ const MenuPage = () => {
       <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4">
         <button
           onClick={() => handleCategoryChange('all')}
-          className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+          className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors border ${
             selectedCategory === 'all'
-              ? 'bg-primary-600 text-white'
-              : 'bg-white text-gray-700 hover:bg-gray-100'
+              ? 'bg-primary-600 text-white border-primary-500'
+              : 'bg-dark-900 text-gray-300 hover:bg-dark-800 border-dark-700'
           }`}
         >
           Все
@@ -75,10 +75,10 @@ const MenuPage = () => {
           <button
             key={category.id}
             onClick={() => handleCategoryChange(category.id)}
-            className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+            className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors border ${
               selectedCategory === category.id
-                ? 'bg-primary-600 text-white'
-                : 'bg-white text-gray-700 hover:bg-gray-100'
+                ? 'bg-primary-600 text-white border-primary-500'
+                : 'bg-dark-900 text-gray-300 hover:bg-dark-800 border-dark-700'
             }`}
           >
             {category.name}
@@ -107,7 +107,7 @@ const MenuPage = () => {
 
       {/* Информация о количестве */}
       {filteredProducts.length > 0 && (
-        <div className="text-center text-sm text-gray-500">
+        <div className="text-center text-sm text-gray-400">
           Найдено товаров: {filteredProducts.length}
         </div>
       )}

@@ -42,26 +42,26 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80"
       onClick={onClose}
     >
       <div
         className={cn(
-          'bg-white rounded-xl shadow-xl w-full',
+          'bg-dark-900 rounded-lg border border-dark-800 shadow-2xl w-full',
           sizes[size],
           'max-h-[90vh] overflow-y-auto'
         )}
         onClick={(e) => e.stopPropagation()}
       >
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <div className="flex items-center justify-between p-4 border-b border-dark-800">
             {title && (
-              <h2 className="text-xl font-bold text-gray-900">{title}</h2>
+              <h2 className="text-xl font-bold text-gray-100 uppercase tracking-tight">{title}</h2>
             )}
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                className="p-1 text-gray-400 hover:text-gray-200 transition-colors"
               >
                 <X size={20} />
               </button>

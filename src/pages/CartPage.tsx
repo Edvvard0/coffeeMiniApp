@@ -38,41 +38,41 @@ const CartPage = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl sm:text-3xl font-bold">Корзина</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-100 uppercase tracking-tight">Корзина</h1>
 
       {/* Delivery Type Selection */}
       <Card className="p-4">
-        <h2 className="font-semibold mb-3">Способ получения</h2>
+        <h2 className="font-semibold mb-3 text-gray-100">Способ получения</h2>
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={() => setDeliveryType('pickup')}
             className={`p-4 rounded-lg border-2 transition-all text-left ${
               deliveryType === 'pickup'
-                ? 'border-primary-600 bg-primary-50'
-                : 'border-gray-300 hover:border-gray-400'
+                ? 'border-primary-600 bg-primary-900'
+                : 'border-dark-700 hover:border-dark-600'
             }`}
           >
-            <Store size={24} className="mb-2 text-primary-600" />
-            <div className="font-medium">Самовывоз</div>
-            <div className="text-sm text-gray-600">Бесплатно</div>
+            <Store size={24} className="mb-2 text-primary-500" />
+            <div className="font-medium text-gray-100">Самовывоз</div>
+            <div className="text-sm text-gray-400">Бесплатно</div>
           </button>
           <button
             onClick={() => setDeliveryType('delivery')}
             className={`p-4 rounded-lg border-2 transition-all text-left ${
               deliveryType === 'delivery'
-                ? 'border-primary-600 bg-primary-50'
-                : 'border-gray-300 hover:border-gray-400'
+                ? 'border-primary-600 bg-primary-900'
+                : 'border-dark-700 hover:border-dark-600'
             }`}
           >
-            <Truck size={24} className="mb-2 text-primary-600" />
-            <div className="font-medium">Доставка</div>
-            <div className="text-sm text-gray-600">
+            <Truck size={24} className="mb-2 text-primary-500" />
+            <div className="font-medium text-gray-100">Доставка</div>
+            <div className="text-sm text-gray-400">
               {isFreeDelivery ? 'Бесплатно' : formatPrice(deliveryPrice)}
             </div>
           </button>
         </div>
         {deliveryType === 'delivery' && !isFreeDelivery && (
-          <div className="mt-3 p-3 bg-amber-50 rounded-lg text-sm text-amber-800">
+          <div className="mt-3 p-3 bg-primary-900 border border-primary-700 rounded-lg text-sm text-primary-300">
             Добавьте товаров на {formatPrice(remainingForFreeDelivery)} для бесплатной доставки
           </div>
         )}
@@ -86,13 +86,13 @@ const CartPage = () => {
       </div>
 
       {/* Order Summary */}
-      <Card className="p-4 space-y-3 sticky bottom-24 bg-white sm:static">
+      <Card className="p-4 space-y-3 sticky bottom-24 bg-dark-900 sm:static">
         <div className="space-y-2">
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-gray-400">
             <span>Товары</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-gray-400">
             <span>Доставка</span>
             <span>
               {deliveryType === 'pickup' || isFreeDelivery
@@ -100,9 +100,9 @@ const CartPage = () => {
                 : formatPrice(deliveryPrice)}
             </span>
           </div>
-          <div className="border-t border-gray-200 pt-2 flex justify-between text-lg font-bold">
-            <span>Итого</span>
-            <span className="text-primary-600">{formatPrice(total)}</span>
+          <div className="border-t border-dark-800 pt-2 flex justify-between text-lg font-bold">
+            <span className="text-gray-100">Итого</span>
+            <span className="text-primary-500">{formatPrice(total)}</span>
           </div>
         </div>
         <Link to="/checkout">
@@ -111,7 +111,7 @@ const CartPage = () => {
             <ArrowRight size={20} />
           </Button>
         </Link>
-        <Link to="/menu" className="block text-center text-sm text-gray-600 hover:text-gray-900">
+        <Link to="/menu" className="block text-center text-sm text-gray-400 hover:text-gray-300">
           Продолжить покупки
         </Link>
       </Card>

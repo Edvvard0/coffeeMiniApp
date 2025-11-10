@@ -12,13 +12,13 @@ const CheckoutSuccessPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6 text-center">
-      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
-        <CheckCircle size={48} className="text-green-600" />
+      <div className="w-20 h-20 bg-primary-900 border-2 border-primary-600 rounded-full flex items-center justify-center">
+        <CheckCircle size={48} className="text-primary-500" />
       </div>
       
       <div>
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Заказ оформлен!</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-100 uppercase tracking-tight">Заказ оформлен!</h1>
+        <p className="text-gray-400">
           {order
             ? `Ваш заказ #${order.id.slice(-6)} принят в обработку`
             : 'Спасибо за ваш заказ!'}
@@ -26,25 +26,25 @@ const CheckoutSuccessPage = () => {
       </div>
 
       {order && (
-        <Card className="p-6 w-full max-w-md">
+        <Card className="p-6 w-full max-w-md border-dark-800">
           <div className="space-y-3 text-left">
             <div className="flex justify-between">
-              <span className="text-gray-600">Номер заказа</span>
-              <span className="font-semibold">#{order.id.slice(-6)}</span>
+              <span className="text-gray-400">Номер заказа</span>
+              <span className="font-semibold text-gray-100">#{order.id.slice(-6)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Сумма</span>
-              <span className="font-semibold">{order.total} ₽</span>
+              <span className="text-gray-400">Сумма</span>
+              <span className="font-semibold text-gray-100">{order.total} ₽</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Способ получения</span>
-              <span className="font-semibold">
+              <span className="text-gray-400">Способ получения</span>
+              <span className="font-semibold text-gray-100">
                 {order.deliveryType === 'delivery' ? 'Доставка' : 'Самовывоз'}
               </span>
             </div>
             {order.loyaltyPointsEarned && (
-              <div className="pt-3 border-t border-gray-200">
-                <div className="flex justify-between text-primary-600">
+              <div className="pt-3 border-t border-dark-800">
+                <div className="flex justify-between text-primary-500">
                   <span>Начислено баллов</span>
                   <span className="font-semibold">+{order.loyaltyPointsEarned}</span>
                 </div>
